@@ -4,10 +4,12 @@ import {
   Dimensions,
   Image,
   ImageBackground,
+  Keyboard,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import { ActivityIndicator, Colors } from "react-native-paper";
@@ -53,7 +55,7 @@ const App = () => {
   }, []);
 
   return (
-    <View style={styles.head}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={styles.head}>
       {isLoading ? (
         <View style={styles.loading}>
           <ActivityIndicator
@@ -132,7 +134,7 @@ const App = () => {
           )}
         </View>
       )}
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -141,6 +143,9 @@ export default App;
 const styles = StyleSheet.create({
   head: {
     flex: 1,
+    backgroundColor: "#0d0d0d",
+
+
   },
   loading: {
     flex: 1,
@@ -188,6 +193,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     color: "white",
+    color:'#EB9C2B'
   },
   city: {
     textAlign: "center",
@@ -221,7 +227,7 @@ const styles = StyleSheet.create({
   },
   cardText: {
     textAlign: "center",
-    color: "white",
+    color:'#EB9C2B'
   },
   warning: {
     color: "white",
